@@ -7,8 +7,6 @@ function Auth({user, setUser}) {
   const [newPassword, setNewPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  // console.log(passwordConfirm)
-
   // Sign Up
   function handleSignupSubmit(e){
     e.preventDefault();
@@ -31,11 +29,31 @@ function Auth({user, setUser}) {
     });
   }
 
+  // Log In
+  function handleLoginSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    })
+    .then(r => {
+      if (r.ok){
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => console.log(err.error));
+      }
+    });
+  }
+
+
   return (
     <div>
       {/* Log In Form */}
       <h1> Log In </h1>
-      <form>
+      <form onSubmit={handleLoginSubmit}>
         <input type="text" name="username" placeholder="Username" autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)}/>
         <input type="text" name="password" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <button> Submit </button>
