@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Auth from "./Auth";
+import Title from "./Title";
 
-// import logo from '../logo.svg';
 import '../App.css';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     });
   }, []);
 
-  // Log Out (needs to be moved!)
+  // Log Out (needs to be moved to eventual profile tab)
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -31,11 +31,16 @@ function App() {
 
 
   if(!user) return (
-    <Auth user={user} setUser={setUser}/>
+    <div className="App">
+      <Title />
+      <Auth user={user} setUser={setUser}/>
+    </div>
+
   )
 
   return (
     <div className="App">
+      <Title />
       <button onClick={() => handleLogout()}> Log Out </button>
     </div>
   );

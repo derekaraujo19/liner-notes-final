@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :songs
+
   # User
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
