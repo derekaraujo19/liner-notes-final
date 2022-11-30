@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Auth from "./Auth";
 import Title from "./Title";
-
+import NavBar from "./NavBar";
+import Tracklist from "./Tracklist";
 import '../App.css';
 
 function App() {
   const [user, setUser] = useState(null)
 
-  console.log(user)
+  // console.log(user)
 
   // Stay Logged In:
   useEffect(() => {
@@ -41,6 +43,10 @@ function App() {
   return (
     <div className="App">
       <Title />
+      <NavBar />
+      <Routes>
+        <Route exact path="/tracklist" element={<Tracklist />}/>
+      </Routes>
       <button onClick={() => handleLogout()}> Log Out </button>
     </div>
   );
