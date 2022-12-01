@@ -11,10 +11,12 @@ function NavBar(){
       </NavLink>
       {/* <NavLink>
         Notes
-      </NavLink>
-      <NavLink>
-        Albums
       </NavLink> */}
+      <NavLink
+        to="/albums"
+      >
+        ALBUMS
+      </NavLink>
       <NavLink
         to="/profile"
       >
