@@ -4,6 +4,7 @@ import Auth from "./Auth";
 import Title from "./Title";
 import NavBar from "./NavBar";
 import Tracklist from "./Tracklist";
+import Profile from "./Profile";
 import '../App.css';
 
 function App() {
@@ -20,17 +21,6 @@ function App() {
     });
   }, []);
 
-  // Log Out (needs to be moved to eventual profile tab)
-  function handleLogout() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    })
-  }
-
 
   if(!user) return (
     <div className="App">
@@ -46,8 +36,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path="/tracklist" element={<Tracklist />}/>
+        <Route exact path="/profile" element={<Profile user={user} setUser={setUser}/>}/>
       </Routes>
-      <button onClick={() => handleLogout()}> Log Out </button>
     </div>
   );
 }

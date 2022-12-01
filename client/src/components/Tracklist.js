@@ -11,11 +11,18 @@ function Tracklist() {
       .then((songs) => setSongs(songs));
   }, []);
 
+  // Add Song
+
+  // Search Songs
+
 
   return (
     <div>
       {songs.map((song) => (
-        <Song song={song}/>
+        <Song
+          key={song.id}
+          song={song}
+        />
       ))}
     </div>
   );
