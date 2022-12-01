@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Song from "./Song";
 
-function TrackList() {
+function Tracklist() {
   const [songs, setSongs] = useState([]);
 
   // Get Song List
@@ -28,4 +28,4 @@ function TrackList() {
   );
 }
 
-export default TrackList;
+export default Tracklist;

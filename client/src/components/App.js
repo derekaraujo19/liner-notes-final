@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Auth from "./Auth";
 import Title from "./Title";
 import NavBar from "./NavBar";
-import TrackList from "./TrackList";
+import Tracklist from "./Tracklist";
 import AlbumList from "./AlbumList";
 import Profile from "./Profile";
 import '../App.css';
@@ -36,7 +36,7 @@ function App() {
       <Title />
       <NavBar />
       <Routes>
-        <Route exact path="/tracklist" element={<TrackList />}/>
+        <Route exact path="/tracklist" element={<Tracklist />}/>
         <Route exact path="/albums" element={<AlbumList />}/>
         <Route exact path="/profile" element={<Profile user={user} setUser={setUser}/>}/>
       </Routes>
