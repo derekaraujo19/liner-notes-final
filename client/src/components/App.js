@@ -4,6 +4,7 @@ import Auth from "./Auth";
 import Title from "./Title";
 import NavBar from "./NavBar";
 import Tracklist from "./Tracklist";
+import Notes from "./Notes";
 import AlbumList from "./AlbumList";
 import Profile from "./Profile";
 import '../App.css';
@@ -37,6 +38,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path="/tracklist" element={<Tracklist />}/>
+        <Route exact path="/notes" element={<Notes />}/>
         <Route exact path="/albums" element={<AlbumList />}/>
         <Route exact path="/profile" element={<Profile user={user} setUser={setUser}/>}/>
       </Routes>

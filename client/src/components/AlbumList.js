@@ -4,11 +4,15 @@ import Album from "./Album";
 function AlbumList() {
   const [albums, setAlbums] = useState([])
 
+  // Get Album List
   useEffect(() => {
     fetch('/albums')
       .then((r) => r.json())
       .then((albums) => setAlbums(albums));
   }, []);
+
+  // Search
+
 
   return (
     <div>
