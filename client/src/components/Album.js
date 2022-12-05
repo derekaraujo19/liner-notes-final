@@ -1,7 +1,7 @@
 
 function Album({album}) {
   return (
-    <h1>{album.title}</h1>
+    <h1>{album.id} {album.title}</h1>
   );
 }
 

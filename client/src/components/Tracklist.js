@@ -11,6 +11,7 @@ function Tracklist() {
       .then((songs) => setSongs(songs));
   }, []);
 
+  console.log(songs.length)
   // Add Song
 
   // Search Songs
