@@ -9,6 +9,17 @@
   gap: 8px;
 }
 
+label, input {
+  display: flex;
+  margin: auto;
+
+}
+
+label {
+  margin-bottom: 50px;
+  border-bottom-style: solid;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
