@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :notes
-  resources :albums
+  resources :albums, only: [:index, :create]
   resources :songs
 
   # User

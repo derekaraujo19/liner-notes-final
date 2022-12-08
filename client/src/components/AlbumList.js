@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Album from "./Album";
+import AddAlbum from "./AddAlbum";
 
 function AlbumList() {
   const [albums, setAlbums] = useState([])
+  const [showAddAlbum, setShowAddAlbum] = useState(null);
 
   // Get Album List
   useEffect(() => {
@@ -11,11 +13,20 @@ function AlbumList() {
       .then((albums) => setAlbums(albums));
   }, []);
 
-  // Search
 
+  console.log(albums)
+  // Search Albums
+
+  // Add Song Form
+  function showAddAlbumForm(){
+    setShowAddAlbum(true)
+  };
+
+  if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum}/>
 
   return (
     <div>
+      <button onClick={showAddAlbumForm}> Add Album </button>
       {albums.map((album) => (
         <Album
           key={album.id}

@@ -4,6 +4,14 @@
 # Destroy all models:
 User.destroy_all
 
-# Users
-puts "Seeding Users..."
-user1 = User.create(username: "derek", password: "123", password_confirmation: "123")
+# # Users
+# puts "Seeding Users..."
+# user1 = User.create(username: "derek", password: "123", password_confirmation: "123")
+  user1 = User.find(1)
+
+# Songs
+puts "Seeding Songs..."
+user1.songs.create!(name: "Sunday Bloody Sunday", artist: "U2")
+user1.songs.create!(name: "Where the Streets Have No Name", artist: "U2")
+user1.songs.create!(name: "One", artist: "U2")
+
