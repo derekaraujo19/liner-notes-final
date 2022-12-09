@@ -30,7 +30,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
     })
     .then(r => {
       if(r.ok) {
-        r.json().then((newAlbum) => console.log(newAlbum));
+        r.json().then((newAlbum) => addNewAlbum(newAlbum));
         e.target.reset();
         setShowAddAlbum(false);
       } else {

@@ -17,12 +17,17 @@ function AlbumList() {
   console.log(albums)
   // Search Albums
 
-  // Add Song Form
+  // Add Album Form
   function showAddAlbumForm(){
     setShowAddAlbum(true)
   };
 
-  if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum}/>
+  // Add Album to DOM
+  function addNewAlbum(newAlbum) {
+    setAlbums([newAlbum, ...albums]);
+  };
+
+  if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
   return (
     <div>

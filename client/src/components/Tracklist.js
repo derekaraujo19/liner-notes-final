@@ -13,11 +13,14 @@ function Tracklist() {
       .then((songs) => setSongs(songs));
   }, []);
 
-  console.log(songs.length)
+  // console.log(songs.length)
+
   // Add Song Form
   function showAddSongForm(){
     setShowAddSong(true)
   };
+
+  // Add Song to DOM
 
   // Search Songs
 

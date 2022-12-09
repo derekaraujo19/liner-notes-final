@@ -2,8 +2,7 @@ class AlbumsController < ApplicationController
 
   def index
     user = User.find_by(id: session[:user_id])
-    albums = user.albums
-    # byebug
+    albums = user.albums.order(id: :desc)
     render json: albums
   end
 
