@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function AddSong({setShowAddSong}) {
+function AddSong({setShowAddSong, addNewSong}) {
   const [name, setName] = useState("");
   const [artist, setArtist] = useState("");
   const [spotify, setSpotify] = useState("");
@@ -13,8 +13,32 @@ function AddSong({setShowAddSong}) {
   // Submit New Song
   function handleAddSongSubmit(e) {
     e.preventDefault();
-    console.log(e);
-  };
+    let newSongData = {
+      "name": name,
+      "artist": artist,
+      "spotify_link": spotify,
+      "is_writer": is_writer,
+      "is_performer": is_performer,
+      "is_producer": is_producer,
+      "is_engineer": is_engineer
+    };
+    fetch("/songs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newSongData)
+    })
+    .then(r => {
+      if(r.ok) {
+        r.json().then((newSong) => addNewSong(newSong));
+        e.target.reset();
+        setShowAddSong(false);
+      } else {
+        r.json().then((err) => console.log(err.errors));
+      }
+    });
+  }
 
   // Return user to tracklist
   function returnToTrackList(){

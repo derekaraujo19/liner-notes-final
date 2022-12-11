@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :notes
   resources :albums, only: [:index, :create]
-  resources :songs
+  resources :songs, only: [:index, :create]
 
   # User
   post "/signup", to: "users#create"

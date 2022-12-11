@@ -21,10 +21,13 @@ function Tracklist() {
   };
 
   // Add Song to DOM
+  function addNewSong(newSong){
+    setSongs([newSong, ...songs]);
+  };
 
   // Search Songs
 
-  if(showAddSong) return <AddSong setShowAddSong={setShowAddSong}/>
+  if(showAddSong) return <AddSong setShowAddSong={setShowAddSong} addNewSong={addNewSong} />
 
   return (
     <div>
