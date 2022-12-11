@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 function AddSong({setShowAddSong, addNewSong}) {
   const [name, setName] = useState("");
@@ -9,6 +9,18 @@ function AddSong({setShowAddSong, addNewSong}) {
   const [is_performer, setIs_Performer] = useState(false);
   const [is_producer, setIs_Producer] = useState(false);
   const [is_engineer, setIs_Engineer] = useState(false);
+  const [albums, setAlbums] = useState([]);
+  const [album_id, setAlbum_Id] = useState("");
+
+  // Retrieve albums for select
+  useEffect(() => {
+    fetch('/albums')
+      .then((r) => r.json())
+      .then((albums) => setAlbums(albums));
+  }, []);
+
+  console.log(albums)
+
 
   // Submit New Song
   function handleAddSongSubmit(e) {
@@ -20,7 +32,8 @@ function AddSong({setShowAddSong, addNewSong}) {
       "is_writer": is_writer,
       "is_performer": is_performer,
       "is_producer": is_producer,
-      "is_engineer": is_engineer
+      "is_engineer": is_engineer,
+      "album_id": album_id
     };
     fetch("/songs", {
       method: "POST",
@@ -67,9 +80,16 @@ function AddSong({setShowAddSong, addNewSong}) {
           <input type="checkbox" name="engineer" value={is_engineer} onChange={(e) => setIs_Engineer(!is_engineer)} />
           <label> Engineer </label>
         </label>
+
         {/* Album Form */}
         <label>
-          <h4>Select Album!!</h4>
+          <h4> Album </h4>
+          <select className="album-select" placeholder="Choose Album" value={album_id} onChange={(e) => setAlbum_Id(e.target.value)}>
+            <option disabled={true} value="">-Choose an Album-</option>
+            {albums.map((album) => (
+              <option key={album.id} value={album.id}>{album.title}</option>
+            ))}
+          </select>
         </label>
         <button> Add Song </button>
       </form>

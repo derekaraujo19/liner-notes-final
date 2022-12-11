@@ -14,7 +14,9 @@ function AlbumList() {
   }, []);
 
 
-  console.log(albums)
+  // console.log(albums)
+
+
   // Search Albums
 
   // Add Album Form
