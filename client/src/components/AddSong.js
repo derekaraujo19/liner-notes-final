@@ -91,7 +91,9 @@ function AddSong({setShowAddSong, addNewSong}) {
             ))}
           </select>
         </label>
-        <button> Add Song </button>
+        <label>
+          <button> Add Song </button>
+        </label>
       </form>
       <button onClick={returnToTrackList}> Return to Tracklist </button>
     </div>

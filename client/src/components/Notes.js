@@ -18,7 +18,12 @@ function Notes() {
     setShowAddNotes(true)
   };
 
-  if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes}/>
+  // Add New Note to DOM
+  function addNewNote(newNote) {
+    setNotes([newNote, ...notes]);
+  };
+
+  if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes} addNewNote={addNewNote}/>
 
   return (
     <div>

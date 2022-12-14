@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :notes
+  resources :notes, only: [:index, :create]
   resources :albums, only: [:index, :create]
   resources :songs, only: [:index, :create]
 
