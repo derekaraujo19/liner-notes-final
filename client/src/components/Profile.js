@@ -12,6 +12,7 @@ function Profile({user, setUser}) {
     })
   }
 
+  // console.log(user)
 
   return (
     <div className="Profile">

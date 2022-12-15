@@ -12,7 +12,7 @@ import '../App.css';
 function App() {
   const [user, setUser] = useState(null)
 
-  // console.log(user)
+
 
   // Stay Logged In:
   useEffect(() => {
@@ -22,6 +22,8 @@ function App() {
       }
     });
   }, []);
+
+  console.log(user)
 
 
   if(!user) return (

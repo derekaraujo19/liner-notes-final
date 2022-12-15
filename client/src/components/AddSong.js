@@ -19,7 +19,7 @@ function AddSong({setShowAddSong, addNewSong}) {
       .then((albums) => setAlbums(albums));
   }, []);
 
-  console.log(albums)
+  // console.log(albums)
 
 
   // Submit New Song
