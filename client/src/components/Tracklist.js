@@ -25,7 +25,14 @@ function Tracklist() {
     setSongs([newSong, ...songs]);
   };
 
+  // Delete Song from DOM
+  function handleDeleteSong(id){
+    const updatedSongs = songs.filter((song) => song.id !== id);
+    setSongs(updatedSongs)
+  };
+
   // Search Songs
+
 
   if(showAddSong) return <AddSong setShowAddSong={setShowAddSong} addNewSong={addNewSong} />
 
@@ -36,6 +43,7 @@ function Tracklist() {
         <Song
           key={song.id}
           song={song}
+          handleDeleteSong={handleDeleteSong}
         />
       ))}
     </div>

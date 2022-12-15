@@ -1,7 +1,7 @@
 
 function Profile({user, setUser}) {
 
-  // Log Out (needs to be moved to eventual profile tab)
+  // Log Out
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -12,12 +12,15 @@ function Profile({user, setUser}) {
     })
   }
 
-  // console.log(user)
+  console.log(user)
+
 
   return (
     <div className="Profile">
-      <h1> Welcome, {user.username} </h1>
-      {/* <h4> You have logged {user.songs} </h4> */}
+      <h1> Welcome, {user.username}! </h1>
+      <h4> You have logged {user.songs ? user.songs.length : ""} songs </h4>
+      <h4> and </h4>
+      <h4> {user.albums ? user.albums.length : "0"} albums </h4>
       <button onClick={() => handleLogout()}> Log Out </button>
     </div>
   );

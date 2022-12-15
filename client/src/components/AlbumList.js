@@ -13,10 +13,6 @@ function AlbumList() {
       .then((albums) => setAlbums(albums));
   }, []);
 
-
-  // console.log(albums)
-
-
   // Search Albums
 
   // Add Album Form
@@ -29,6 +25,12 @@ function AlbumList() {
     setAlbums([newAlbum, ...albums]);
   };
 
+  // Delete Album from DOM
+  function handleDeleteAlbum(id) {
+    const updatedAlbums = albums.filter((album) => album.id !== id);
+    setAlbums(updatedAlbums)
+  }
+
   if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
   return (
@@ -38,6 +40,7 @@ function AlbumList() {
         <Album
           key={album.id}
           album={album}
+          handleDeleteAlbum={handleDeleteAlbum}
         />
       ))}
     </div>

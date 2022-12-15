@@ -12,6 +12,12 @@ class SongsController < ApplicationController
     render json: song, status: :created
   end
 
+  def destroy
+    song = Song.find(params[:id])
+    song.destroy
+    head :no_content
+  end
+
   private
 
   def song_params

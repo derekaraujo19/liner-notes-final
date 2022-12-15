@@ -1,7 +1,22 @@
 
-function Song({song}) {
+function Song({song, handleDeleteSong}) {
+
+  // Delete Song
+  function handleDeleteSubmit(){
+    fetch(`/songs/${song.id}`, {
+      method: "DELETE"
+    });
+    handleDeleteSong(song.id)
+  };
+
   return (
-    <h1>{song.id} {song.name}</h1>
+    <div>
+      <h1>{song.id} {song.name}</h1>
+      {song.album ? <ul>From the Album: {song.album.title}</ul> : ""}
+      <button onClick={handleDeleteSubmit}>
+        <div role="img" aria-label="delete"> 🗑 </div>
+      </button>
+    </div>
   );
 }
 

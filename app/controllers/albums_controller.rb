@@ -12,6 +12,12 @@ class AlbumsController < ApplicationController
     render json: album, status: :created
   end
 
+  def destroy
+    album = Album.find(params[:id])
+    album.destroy
+    head :no_content
+  end
+
   private
 
   def album_params
