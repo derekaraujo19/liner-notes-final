@@ -34,7 +34,7 @@ function AlbumList() {
   if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
   return (
-    <div>
+    <div className="Lists">
       <button onClick={showAddAlbumForm}> Add Album </button>
       {albums.map((album) => (
         <Album

@@ -19,6 +19,19 @@ label {
   border-bottom-style: solid;
 }
 
+.Note {
+  border-style: solid;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.Lists {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

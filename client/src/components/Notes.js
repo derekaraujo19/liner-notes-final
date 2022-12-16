@@ -26,7 +26,7 @@ function Notes() {
   if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes} addNewNote={addNewNote}/>
 
   return (
-    <div>
+    <div className="Lists">
       <button onClick={showAddNoteForm}> Add Note </button>
       {notes.map((note) => (
         <Note
