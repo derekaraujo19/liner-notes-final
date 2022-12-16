@@ -8,7 +8,6 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
   const [releaseDate, setReleaseDate] = useState("");
   const [genre, setGenre] = useState("");
 
-  console.log(genre)
 
   // Submit New Album
   function handleAddAlbumSubmit(e) {
@@ -39,10 +38,6 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
     });
   }
 
-  // Return user to Album list
-  function returnToAlbumList(){
-    setShowAddAlbum(false);
-  };
 
   return (
     <div>
@@ -57,7 +52,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           <button> Add Album </button>
         </label>
       </form>
-      <button onClick={returnToAlbumList}> Return to Albums </button>
+      <button onClick={() => setShowAddAlbum(false)}> Return to Albums </button>
     </div>
   );
 }

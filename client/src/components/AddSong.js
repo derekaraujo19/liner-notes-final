@@ -53,10 +53,6 @@ function AddSong({setShowAddSong, addNewSong}) {
     });
   }
 
-  // Return user to tracklist
-  function returnToTrackList(){
-    setShowAddSong(false);
-  };
 
   return (
     <div className="Forms">
@@ -95,7 +91,7 @@ function AddSong({setShowAddSong, addNewSong}) {
           <button> Add Song </button>
         </label>
       </form>
-      <button onClick={returnToTrackList}> Return to Tracklist </button>
+      <button onClick={() => setShowAddSong(false)}> Return to Tracklist </button>
     </div>
   );
 }

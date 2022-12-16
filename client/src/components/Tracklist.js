@@ -13,8 +13,6 @@ function Tracklist() {
       .then((songs) => setSongs(songs));
   }, []);
 
-
-
   // Add Song Form
   function showAddSongForm(){
     setShowAddSong(true)
@@ -31,6 +29,18 @@ function Tracklist() {
     setSongs(updatedSongs)
   };
 
+  // Update Song in DOM
+  function handleUpdateSong(updatedSong) {
+    const updatedSongs = songs.map((song) => {
+      if (song.id === updatedSong.id) {
+        return updatedSong
+      } else {
+        return song;
+      }
+    });
+    setSongs(updatedSongs);
+  };
+
   // Search Songs
 
 
@@ -44,6 +54,7 @@ function Tracklist() {
           key={song.id}
           song={song}
           handleDeleteSong={handleDeleteSong}
+          handleUpdateSong={handleUpdateSong}
         />
       ))}
     </div>

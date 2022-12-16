@@ -1,6 +1,8 @@
 
 function Profile({user, setUser}) {
 
+  // window.location.reload();
+
   // Log Out
   function handleLogout() {
     fetch("/logout", {
@@ -12,7 +14,7 @@ function Profile({user, setUser}) {
     })
   }
 
-  console.log(user)
+
 
 
   return (

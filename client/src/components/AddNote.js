@@ -40,10 +40,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
     });
   }
 
-  // Return user to notes list
-  function returnToNotes(){
-    setShowAddNotes(false)
-  };
+
 
   return (
     <div className="Forms">
@@ -61,7 +58,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
           <button> Add Note </button>
         </label>
       </form>
-      <button onClick={returnToNotes}> Return to Notes </button>
+      <button onClick={() => setShowAddNotes(false)}> Return to Notes </button>
     </div>
   );
 }

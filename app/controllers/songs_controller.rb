@@ -12,6 +12,12 @@ class SongsController < ApplicationController
     render json: song, status: :created
   end
 
+  def update
+    song = Song.find(params[:id])
+    song.update!(song_params)
+    render json: song, status: :created
+  end
+
   def destroy
     song = Song.find(params[:id])
     song.destroy
