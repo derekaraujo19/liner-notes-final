@@ -20,7 +20,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
       "release_date": releaseDate,
       "genre": genre
     };
-    fetch("/albums", {
+    fetch("/api/albums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

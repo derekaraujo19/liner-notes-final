@@ -8,7 +8,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
 
   // Retrieve songs
   useEffect(() => {
-    fetch('/songs')
+    fetch('/api/songs')
       .then((r) => r.json())
       .then((songs) => setSongs(songs));
   }, []);
@@ -22,7 +22,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
       "text": text,
       "song_id": song_id
     };
-    fetch("/notes", {
+    fetch("/api/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

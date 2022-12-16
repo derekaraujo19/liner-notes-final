@@ -8,7 +8,7 @@ function AlbumList() {
 
   // Get Album List
   useEffect(() => {
-    fetch('/albums')
+    fetch('/api/albums')
       .then((r) => r.json())
       .then((albums) => setAlbums(albums));
   }, []);

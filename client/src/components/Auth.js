@@ -10,7 +10,7 @@ function Auth({user, setUser}) {
   // Sign Up
   function handleSignupSubmit(e){
     e.preventDefault();
-    fetch("/signup", {
+    fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ function Auth({user, setUser}) {
   // Log In
   function handleLoginSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

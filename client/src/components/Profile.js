@@ -5,7 +5,7 @@ function Profile({user, setUser}) {
 
   // Log Out
   function handleLogout() {
-    fetch("/logout", {
+    fetch("/api/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

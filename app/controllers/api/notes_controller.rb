@@ -1,4 +1,4 @@
-class NotesController < ApplicationController
+class Api::NotesController < ApplicationController
 
   def index
     user = User.find_by(id: session[:user_id])

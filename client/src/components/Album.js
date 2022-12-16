@@ -3,7 +3,7 @@ function Album({album, handleDeleteAlbum}) {
 
   // Delete Album
   function handleDeleteSubmit(){
-    fetch(`/albums/${album.id}`, {
+    fetch(`/api/albums/${album.id}`, {
       method: "DELETE"
     });
     handleDeleteAlbum(album.id)

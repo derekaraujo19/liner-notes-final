@@ -14,7 +14,7 @@ function AddSong({setShowAddSong, addNewSong}) {
 
   // Retrieve albums for select
   useEffect(() => {
-    fetch('/albums')
+    fetch('/api/albums')
       .then((r) => r.json())
       .then((albums) => setAlbums(albums));
   }, []);
@@ -35,7 +35,7 @@ function AddSong({setShowAddSong, addNewSong}) {
       "is_engineer": is_engineer,
       "album_id": album_id
     };
-    fetch("/songs", {
+    fetch("/api/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

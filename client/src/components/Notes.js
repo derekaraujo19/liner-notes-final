@@ -8,7 +8,7 @@ function Notes() {
 
   // Get Notes
   useEffect(() => {
-    fetch('/notes')
+    fetch('/api/notes')
       .then((r) => r.json())
       .then((notes) => setNotes(notes))
   }, []);

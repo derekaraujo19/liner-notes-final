@@ -6,7 +6,7 @@ function Song({song, handleDeleteSong, handleUpdateSong}) {
 
   // Delete Song
   function handleDeleteSubmit(){
-    fetch(`/songs/${song.id}`, {
+    fetch(`/api/songs/${song.id}`, {
       method: "DELETE"
     });
     handleDeleteSong(song.id)

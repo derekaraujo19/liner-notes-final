@@ -23,7 +23,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
       "is_producer": is_producer,
       "is_engineer": is_engineer
     };
-    fetch(`/songs/${song.id}`, {
+    fetch(`/api/songs/${song.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
   // Retrieve albums for select
   useEffect(() => {
-    fetch('/albums')
+    fetch('/api/albums')
       .then((r) => r.json())
       .then((albums) => setAlbums(albums));
   }, []);

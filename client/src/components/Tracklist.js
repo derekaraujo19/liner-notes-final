@@ -8,7 +8,7 @@ function Tracklist() {
 
   // Get Song List
   useEffect(() => {
-    fetch('/songs')
+    fetch('/api/songs')
       .then((r) => r.json())
       .then((songs) => setSongs(songs));
   }, []);

@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class Api::AlbumsController < ApplicationController
 
   def index
     user = User.find_by(id: session[:user_id])
