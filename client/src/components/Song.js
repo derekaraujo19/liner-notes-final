@@ -14,7 +14,7 @@ function Song({song, handleDeleteSong, handleUpdateSong}) {
 
 
   return (
-    <div>
+    <div className="Song">
       <h1>"{song.name}"</h1>
       <h2>{song.artist}</h2>
       {song.album ? <h3><em>{song.album.title}</em></h3> : ""}

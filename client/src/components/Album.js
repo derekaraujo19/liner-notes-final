@@ -17,7 +17,8 @@ function Album({album, handleDeleteAlbum}) {
       <h2>{album.artist}</h2>
       <h4>{album.genre}</h4>
       <img src={album.artwork_url} alt="Album Artwork" width="400" height="400"/>
-      {album.songs.map(song => <ul key={song.id}>{song.name}</ul>)}
+      <h3> Songs: </h3>
+      {album.songs.map(song => <h4 key={song.id}>{song.name}</h4>)}
       <button onClick={handleDeleteSubmit}>
         <div role="img" aria-label="delete"> 🗑 </div>
       </button>
