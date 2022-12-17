@@ -1,5 +1,5 @@
 class Note < ApplicationRecord
-  # add validations
+  validates :text, presence: true
 
   belongs_to :user
   belongs_to :song

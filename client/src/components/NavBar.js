@@ -9,16 +9,19 @@ function NavBar(){
       >
         TRACKLIST
       </NavLink>
-      <NavLink
-        to="/notes"
-      >
-        NOTES
-      </NavLink>
+
       <NavLink
         to="/albums"
       >
         ALBUMS
       </NavLink>
+
+      <NavLink
+        to="/notes"
+      >
+        NOTES
+      </NavLink>
+
       <NavLink
         to="/profile"
       >

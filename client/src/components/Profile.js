@@ -1,7 +1,6 @@
 
 function Profile({user, setUser}) {
 
-  // window.location.reload();
 
   // Log Out
   function handleLogout() {

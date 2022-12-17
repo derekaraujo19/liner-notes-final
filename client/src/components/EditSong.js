@@ -10,6 +10,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
   const [is_producer, setIs_Producer] = useState(song.is_producer);
   const [is_engineer, setIs_Engineer] = useState(song.is_engineer);
   const [albums, setAlbums] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   function handleUpdateSubmit(e) {
     e.preventDefault();
@@ -35,7 +36,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
         r.json().then((updatedSong) => handleUpdateSong(updatedSong))
         setIsEditing(false)
       } else {
-        r.json().then((err) => console.log(err.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -79,6 +80,11 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
           <button> Save </button>
         </label>
       </form>
+      <div>
+        {errors ? errors.map((error) => (
+          <ul key={error} className="Errors">{error}</ul>
+        )) : ""}
+      </div>
       <button onClick={() => setIsEditing(false)}> Exit </button>
     </div>
   );

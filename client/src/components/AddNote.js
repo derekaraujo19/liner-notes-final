@@ -3,7 +3,8 @@ import React, {useState, useEffect} from "react";
 function AddNote({setShowAddNotes, addNewNote}) {
   const [text, setText] = useState("")
   const [songs, setSongs] = useState([]);
-  const [song_id, setSong_Id] = useState("")
+  const [song_id, setSong_Id] = useState("");
+  const [errors, setErrors] = useState([]);
 
 
   // Retrieve songs
@@ -13,7 +14,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
       .then((songs) => setSongs(songs));
   }, []);
 
-  // console.log(songs)
+
 
   // Submit new note
   function handleAddNoteSubmit(e) {
@@ -35,7 +36,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
         e.target.reset();
         setShowAddNotes(false);
       } else {
-        r.json().then((err) => console.log(err.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -58,6 +59,11 @@ function AddNote({setShowAddNotes, addNewNote}) {
           <button> Add Note </button>
         </label>
       </form>
+      <div>
+        {errors ? errors.map((error) => (
+          <ul key={error} className="Errors">{error}</ul>
+        )) : ""}
+      </div>
       <button onClick={() => setShowAddNotes(false)}> Return to Notes </button>
     </div>
   );

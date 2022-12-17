@@ -6,6 +6,8 @@ function Auth({user, setUser}) {
   const [newUsername, setNewUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [logInError, setLogInError] = useState("");
+  const [signUpErrors, setSignUpErrors] = useState([]);
 
   // Sign Up
   function handleSignupSubmit(e){
@@ -24,7 +26,7 @@ function Auth({user, setUser}) {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       } else {
-        r.json().then((err) => console.log(err.errors))
+        r.json().then((err) => setSignUpErrors(err.errors))
       }
     });
   }
@@ -43,11 +45,10 @@ function Auth({user, setUser}) {
       if (r.ok){
         r.json().then((user) => setUser(user));
       } else {
-        r.json().then((err) => console.log(err.error));
+        r.json().then((err) => setLogInError(err.error));
       }
     });
   }
-
 
   return (
     <div>
@@ -58,6 +59,14 @@ function Auth({user, setUser}) {
         <input type="text" name="password" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <button> Submit </button>
       </form>
+
+      {/* Log In Error */}
+      <div>
+        {logInError ? (
+          <ul className="Errors">{logInError}</ul>
+        ) : ""}
+      </div>
+
       {/* Sign Up Form */}
       <h1> Or Create an Account </h1>
       <form onSubmit={handleSignupSubmit}>
@@ -66,6 +75,13 @@ function Auth({user, setUser}) {
         <input type="text" name="password_confirmation" placeholder="Confirm Password" autoComplete="off" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
         <button> Create Account </button>
       </form>
+
+      {/* Sign Up Errors */}
+      <div>
+        {signUpErrors ? signUpErrors.map((error) => (
+          <ul key={error} className="Errors">{error}</ul>
+        )) : ""}
+      </div>
     </div>
   )
 }

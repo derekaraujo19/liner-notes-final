@@ -7,6 +7,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
   const [spotify, setSpotify] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
   const [genre, setGenre] = useState("");
+  const [errors, setErrors] = useState([]);
 
 
   // Submit New Album
@@ -33,7 +34,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
         e.target.reset();
         setShowAddAlbum(false);
       } else {
-        r.json().then((err) => console.log(err.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -46,12 +47,17 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           <input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} autoComplete="off" />
           <input type="text" value={artist} placeholder="Artist" onChange={(e) => setArtist(e.target.value)} autoComplete="off" />
           <input type="text" value={artwork} placeholder="Artwork URL" onChange={(e) => setArtwork(e.target.value)} autoComplete="off" />
-          <input type="text" value={spotify} placeholder="Spotify Link" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" />
-          <input type="text" value={releaseDate} placeholder="Release Date(YYYY)" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
-          <input type="text" value={genre} placeholder="Genre" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
+          <input type="text" value={spotify} placeholder="Spotify Link (optional)" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" />
+          <input type="text" value={releaseDate} placeholder="Release Date (YYYY)"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
+          <input type="text" value={genre} placeholder="Genre (optional)" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
           <button> Add Album </button>
         </label>
       </form>
+      <div>
+        {errors ? errors.map((error) => (
+          <ul key={error} className="Errors">{error}</ul>
+        )) : ""}
+      </div>
       <button onClick={() => setShowAddAlbum(false)}> Return to Albums </button>
     </div>
   );

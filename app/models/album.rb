@@ -1,7 +1,6 @@
 class Album < ApplicationRecord
   validates :title, :artist, :artwork_url, presence: true
-
-  # Add validation for year type - integer, max 4 digits
+  validates :release_date, numericality: { only_integer: true }
 
   has_many :songs
   has_many :users

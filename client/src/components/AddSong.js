@@ -11,6 +11,7 @@ function AddSong({setShowAddSong, addNewSong}) {
   const [is_engineer, setIs_Engineer] = useState(false);
   const [albums, setAlbums] = useState([]);
   const [album_id, setAlbum_Id] = useState("");
+  const [errors, setErrors] = useState([]);
 
   // Retrieve albums for select
   useEffect(() => {
@@ -19,7 +20,7 @@ function AddSong({setShowAddSong, addNewSong}) {
       .then((albums) => setAlbums(albums));
   }, []);
 
-  // console.log(albums)
+
 
 
   // Submit New Song
@@ -48,7 +49,7 @@ function AddSong({setShowAddSong, addNewSong}) {
         e.target.reset();
         setShowAddSong(false);
       } else {
-        r.json().then((err) => console.log(err.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -61,9 +62,9 @@ function AddSong({setShowAddSong, addNewSong}) {
         <label>
           <input type="text" name="name" placeholder="Song Name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="off"/>
           <input type="text" name="artist" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)} autoComplete="off"/>
-          <input type="text" name="spotify_url" placeholder="Spotify Link" value={spotify} onChange={(e) => setSpotify(e.target.value)} autoComplete="off"/>
+          <input type="text" name="spotify_url" placeholder="Spotify Link (optional)" value={spotify} onChange={(e) => setSpotify(e.target.value)} autoComplete="off"/>
         </label>
-
+        <h4>Optional</h4>
         {/* Involvement Form */}
         <label>
           <h4> Involvement: </h4>
@@ -75,10 +76,9 @@ function AddSong({setShowAddSong, addNewSong}) {
           <label> Producer </label>
           <input type="checkbox" name="engineer" value={is_engineer} onChange={(e) => setIs_Engineer(!is_engineer)} />
           <label> Engineer </label>
-        </label>
+
 
         {/* Album Form */}
-        <label>
           <h4> Album </h4>
           <select className="album-select" placeholder="Choose Album" value={album_id} onChange={(e) => setAlbum_Id(e.target.value)}>
             <option disabled={true} value="">-Choose an Album-</option>
@@ -86,11 +86,14 @@ function AddSong({setShowAddSong, addNewSong}) {
               <option key={album.id} value={album.id}>{album.title}</option>
             ))}
           </select>
-        </label>
-        <label>
           <button> Add Song </button>
         </label>
       </form>
+      <div>
+        {errors ? errors.map((error) => (
+          <ul key={error} className="Errors">{error}</ul>
+        )) : ""}
+      </div>
       <button onClick={() => setShowAddSong(false)}> Return to Tracklist </button>
     </div>
   );
