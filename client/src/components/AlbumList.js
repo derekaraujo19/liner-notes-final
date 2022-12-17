@@ -33,6 +33,13 @@ function AlbumList() {
 
   if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
+  if(albums.length === 0) return (
+    <div>
+      <button onClick={showAddAlbumForm}> Add Album </button>
+      <h2> No Albums Yet! Click Add Album to Get Started </h2>
+    </div>
+  );
+
   return (
     <div className="Lists">
       <button onClick={showAddAlbumForm}> Add Album </button>

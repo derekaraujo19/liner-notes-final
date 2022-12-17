@@ -46,6 +46,13 @@ function Tracklist() {
 
   if(showAddSong) return <AddSong setShowAddSong={setShowAddSong} addNewSong={addNewSong} />
 
+  if(songs.length === 0) return (
+    <div>
+      <button onClick={showAddSongForm}> Add Track </button>
+      <h2> No Songs Yet! Click Add Track to Get Started </h2>
+    </div>
+  );
+
   return (
     <div>
       <button onClick={showAddSongForm}> Add Track </button>

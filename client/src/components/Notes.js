@@ -25,6 +25,13 @@ function Notes() {
 
   if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes} addNewNote={addNewNote}/>
 
+  if(notes.length === 0) return (
+    <div>
+      <button onClick={showAddNoteForm}> Add Note </button>
+      <h2> Add a Note to Get Started </h2>
+    </div>
+  );
+
   return (
     <div className="Lists">
       <button onClick={showAddNoteForm}> Add Note </button>
