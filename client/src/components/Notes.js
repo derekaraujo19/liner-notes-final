@@ -23,6 +23,12 @@ function Notes() {
     setNotes([newNote, ...notes]);
   };
 
+  // Delete Note from DOM
+  function handleDeleteNote(id) {
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    setNotes(updatedNotes);
+  };
+
   if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes} addNewNote={addNewNote}/>
 
   if(notes.length === 0) return (
@@ -39,6 +45,7 @@ function Notes() {
         <Note
           key={note.id}
           note={note}
+          handleDeleteNote={handleDeleteNote}
         />
       ))}
     </div>

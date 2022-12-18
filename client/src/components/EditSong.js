@@ -4,7 +4,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
   const [name, setName] = useState(song.name);
   const [album_id, setAlbum_Id] = useState(song.album_id);
   const [artist, setArtist] = useState(song.artist);
-  const [spotify_link, setSpotify_Link] = useState(song.spotify_link);
+  // const [spotify_link, setSpotify_Link] = useState(song.spotify_link);
   const [is_writer, setIs_Writer] = useState(song.is_writer);
   const [is_performer, setIs_Performer] = useState(song.is_performer);
   const [is_producer, setIs_Producer] = useState(song.is_producer);
@@ -14,11 +14,11 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
   function handleUpdateSubmit(e) {
     e.preventDefault();
-    let updatedSong = {
+    let updatedSongData = {
       "name": name,
       "album_id": album_id,
       "artist": artist,
-      "spotify_link": spotify_link,
+      // "spotify_link": spotify_link,
       "is_writer": is_writer,
       "is_performer": is_performer,
       "is_producer": is_producer,
@@ -29,7 +29,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedSong)
+      body: JSON.stringify(updatedSongData)
     })
     .then(r => {
       if(r.ok) {
@@ -64,7 +64,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
           <input type="text" name="artist" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)}/>
 
-          <input type="text" name="spotify" placeholder="Spotify Link" value={spotify_link} onChange={(e) => setSpotify_Link(e.target.value)} />
+          {/* <input type="text" name="spotify" placeholder="Spotify Link" value={spotify_link} onChange={(e) => setSpotify_Link(e.target.value)} /> */}
 
           <input type="checkbox" name="writer" value={is_writer} onChange={(e) => setIs_Writer(!is_writer)}  checked={is_writer ? true : false}/>
           <label> Writer </label>

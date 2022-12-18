@@ -19,7 +19,7 @@ function Song({song, handleDeleteSong, handleUpdateSong}) {
       <h2>{song.artist}</h2>
       {song.album ? <h3><em>{song.album.title}</em></h3> : ""}
       {song.album ? <img src={song.album.artwork_url} alt="Album Artwork" width="75" height="75"/> : ""}
-      <ul>{song.spotify_link}</ul>
+      {/* <ul>{song.spotify_link}</ul> */}
       {song.is_writer ? <h4>Writer</h4> : ""}
       {song.is_performer ? <h4>Performer</h4> : ""}
       {song.is_producer ? <h4>Producer</h4> : ""}

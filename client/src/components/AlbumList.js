@@ -25,11 +25,23 @@ function AlbumList() {
     setAlbums([newAlbum, ...albums]);
   };
 
+  // Update Album in DOM
+  function handleUpdateAlbum(updatedAlbum) {
+    const updatedAlbums = albums.map((album) => {
+      if (album.id === updatedAlbum.id) {
+        return updatedAlbum
+      } else {
+        return album;
+      }
+    });
+    setAlbums(updatedAlbums);
+  };
+
   // Delete Album from DOM
   function handleDeleteAlbum(id) {
     const updatedAlbums = albums.filter((album) => album.id !== id);
     setAlbums(updatedAlbums)
-  }
+  };
 
   if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
@@ -48,6 +60,7 @@ function AlbumList() {
           key={album.id}
           album={album}
           handleDeleteAlbum={handleDeleteAlbum}
+          handleUpdateAlbum={handleUpdateAlbum}
         />
       ))}
     </div>

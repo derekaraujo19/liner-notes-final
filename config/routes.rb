@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    resources :notes, only: [:index, :create]
-    resources :albums, only: [:index, :create, :destroy]
+    resources :notes, only: [:index, :create, :destroy]
+    resources :albums, only: [:index, :create, :update, :destroy]
     resources :songs, only: [:index, :create, :update, :destroy]
 
     # User

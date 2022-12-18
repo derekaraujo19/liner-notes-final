@@ -3,8 +3,7 @@ import React, {useState, useEffect} from "react";
 function AddSong({setShowAddSong, addNewSong}) {
   const [name, setName] = useState("");
   const [artist, setArtist] = useState("");
-  const [spotify, setSpotify] = useState("");
-  // Add release_date ?
+  // const [spotify, setSpotify] = useState("");
   const [is_writer, setIs_Writer] = useState(false);
   const [is_performer, setIs_Performer] = useState(false);
   const [is_producer, setIs_Producer] = useState(false);
@@ -21,15 +20,13 @@ function AddSong({setShowAddSong, addNewSong}) {
   }, []);
 
 
-
-
   // Submit New Song
   function handleAddSongSubmit(e) {
     e.preventDefault();
     let newSongData = {
       "name": name,
       "artist": artist,
-      "spotify_link": spotify,
+      // "spotify_link": spotify,
       "is_writer": is_writer,
       "is_performer": is_performer,
       "is_producer": is_producer,
@@ -62,7 +59,7 @@ function AddSong({setShowAddSong, addNewSong}) {
         <label>
           <input type="text" name="name" placeholder="Song Name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="off"/>
           <input type="text" name="artist" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)} autoComplete="off"/>
-          <input type="text" name="spotify_url" placeholder="Spotify Link (optional)" value={spotify} onChange={(e) => setSpotify(e.target.value)} autoComplete="off"/>
+          {/* <input type="text" name="spotify_url" placeholder="Spotify Link (optional)" value={spotify} onChange={(e) => setSpotify(e.target.value)} autoComplete="off"/> */}
         </label>
         <h4>Optional</h4>
         {/* Involvement Form */}
@@ -79,7 +76,7 @@ function AddSong({setShowAddSong, addNewSong}) {
 
 
         {/* Album Form */}
-          <h4> Album </h4>
+          <h4> Album: </h4>
           <select className="album-select" placeholder="Choose Album" value={album_id} onChange={(e) => setAlbum_Id(e.target.value)}>
             <option disabled={true} value="">-Choose an Album-</option>
             {albums.map((album) => (

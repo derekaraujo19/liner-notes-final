@@ -1,38 +1,35 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-function AddAlbum({setShowAddAlbum, addNewAlbum}) {
-  const [title, setTitle] = useState("");
-  const [artwork,setArtwork] = useState("");
-  const [artist, setArtist] = useState("");
-  // const [spotify, setSpotify] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [genre, setGenre] = useState("");
+function EditAlbum({setIsEditing, album, handleUpdateAlbum}) {
+  const [title, setTitle] = useState(album.title);
+  const [artist, setArtist] = useState(album.artist);
+  const [artwork, setArtwork] = useState(album.artwork_url);
+  const [releaseDate, setReleaseDate] = useState(album.release_date);
+  const [genre, setGenre] = useState(album.genre);
   const [errors, setErrors] = useState([]);
+  // const [spotify, setSpotify] = useState("");
 
-
-  // Submit New Album
-  function handleAddAlbumSubmit(e) {
+  function handleUpdateSubmit(e) {
     e.preventDefault();
-    let newAlbumData = {
+    let updatedAlbumData = {
       "title": title,
-      "artwork_url": artwork,
       "artist": artist,
-      // "spotify_link": spotify,
+      "artwork_url": artwork,
       "release_date": releaseDate,
       "genre": genre
+      // "spotify_link": spotify
     };
-    fetch("/api/albums", {
-      method: "POST",
+    fetch(`/api/albums/${album.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newAlbumData)
+      body: JSON.stringify(updatedAlbumData)
     })
     .then(r => {
       if(r.ok) {
-        r.json().then((newAlbum) => addNewAlbum(newAlbum));
-        e.target.reset();
-        setShowAddAlbum(false);
+        r.json().then((updatedAlbum) => handleUpdateAlbum(updatedAlbum));
+        setIsEditing(false);
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -42,7 +39,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
 
   return (
     <div>
-      <form onSubmit={handleAddAlbumSubmit}>
+      <form onSubmit={handleUpdateSubmit}>
         <label>
           <input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} autoComplete="off" />
           <input type="text" value={artist} placeholder="Artist" onChange={(e) => setArtist(e.target.value)} autoComplete="off" />
@@ -50,7 +47,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           {/* <input type="text" value={spotify} placeholder="Spotify Link (optional)" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" /> */}
           <input type="text" value={releaseDate} placeholder="Release Date (YYYY)"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
           <input type="text" value={genre} placeholder="Genre (optional)" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
-          <button> Add Album </button>
+          <button> Save </button>
         </label>
       </form>
       <div>
@@ -58,9 +55,9 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setShowAddAlbum(false)}> Return to Albums </button>
+      <button onClick={() => setIsEditing(false)}> Exit </button>
     </div>
   );
 }
 
-export default AddAlbum;
+export default EditAlbum;
