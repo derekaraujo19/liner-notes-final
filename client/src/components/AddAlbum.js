@@ -41,15 +41,23 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
 
 
   return (
-    <div>
+    <div >
       <form onSubmit={handleAddAlbumSubmit}>
-        <label>
-          <input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} autoComplete="off" />
-          <input type="text" value={artist} placeholder="Artist" onChange={(e) => setArtist(e.target.value)} autoComplete="off" />
-          <input type="text" value={artwork} placeholder="Artwork URL" onChange={(e) => setArtwork(e.target.value)} autoComplete="off" />
+        <label className="new-item">
+          <input type="text" value={title} placeholder="Title*" onChange={(e) => setTitle(e.target.value)} autoComplete="off" />
+        </label>
+        <label className="new-item">
+          <input type="text" value={artist} placeholder="Artist*" onChange={(e) => setArtist(e.target.value)} autoComplete="off" />
+        </label>
+        <label className="new-item">
+          <input type="text" value={artwork} placeholder="Artwork URL*" onChange={(e) => setArtwork(e.target.value)} autoComplete="off" />
+        </label>
           {/* <input type="text" value={spotify} placeholder="Spotify Link (optional)" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" /> */}
-          <input type="text" value={releaseDate} placeholder="Release Date (YYYY)"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
-          <input type="text" value={genre} placeholder="Genre (optional)" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
+        <label className="new-item">
+          <input type="text" value={releaseDate} placeholder="Release Date (YYYY)*"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
+        <label className="new-item">
+          <input type="text" value={genre} placeholder="Genre" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
+        </label>
           <button className="button" id="card-button"> ADD ALBUM </button>
         </label>
       </form>
@@ -58,7 +66,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button className="button" onClick={() => setShowAddAlbum(false)}> RETURN TO ALBUMS </button>
+      <button className="button" id="card-button" onClick={() => setShowAddAlbum(false)}> RETURN TO ALBUMS </button>
     </div>
   );
 }

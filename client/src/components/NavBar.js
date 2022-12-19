@@ -1,15 +1,13 @@
 import {NavLink} from "react-router-dom";
 
-// Pink - "#FFC0CB", "#FEC5E5" - THIS ONE
-// Beige - "#F9F6EE"
-// White - #FFFFFF
 
 const linkStyles = {
   color: "black"
 };
 
 const activeStyle = {
-  color: "#FEC5E5"
+  color: "#FEC5E5",
+  textDecoration: 'none'
 }
 
 function NavBar(){

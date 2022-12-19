@@ -50,22 +50,25 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
 
   return (
-    <div>
+    <div className="Forms">
       <form onSubmit={handleUpdateSubmit}>
-        <label>
+        <label className="new-item">
           <input type="text" name="name" placeholder="Song Name" value={name} onChange={(e) => setName(e.target.value)}/>
-
+        </label>
+        <label className="new-item">
           <select className="album-select" placeholder="Choose Album" value={album_id ? album_id : ""} onChange={(e) => setAlbum_Id(e.target.value)}>
               <option disabled={true} value="">-Choose an Album-</option>
               {albums.map((album) => (
                 <option key={album.id} value={album.id}>{album.title}</option>
               ))}
           </select>
-
+        </label>
+        <label className="new-item">
           <input type="text" name="artist" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)}/>
+        </label>
 
           {/* <input type="text" name="spotify" placeholder="Spotify Link" value={spotify_link} onChange={(e) => setSpotify_Link(e.target.value)} /> */}
-
+        <label className="new-item">
           <input type="checkbox" name="writer" value={is_writer} onChange={(e) => setIs_Writer(!is_writer)}  checked={is_writer ? true : false}/>
           <label> Writer </label>
 
@@ -77,6 +80,8 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
           <input type="checkbox" name="engineer" value={is_engineer} onChange={(e) => setIs_Engineer(!is_engineer)} checked={is_engineer ? true : false} />
           <label> Engineer </label>
+        </label>
+        <label className="new-item">
           <button className="button" id="card-button"> SAVE </button>
         </label>
       </form>
@@ -85,7 +90,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button className="button"  onClick={() => setIsEditing(false)}> EXIT </button>
+      <button className="button" id="card-button"  onClick={() => setIsEditing(false)}> EXIT </button>
     </div>
   );
 }

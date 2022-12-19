@@ -38,16 +38,26 @@ function EditAlbum({setIsEditing, album, handleUpdateAlbum}) {
 
 
   return (
-    <div>
+    <div className="Edit">
       <form onSubmit={handleUpdateSubmit}>
-        <label>
+        <label className="new-item">
           <input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} autoComplete="off" />
+        </label>
+        <label className="new-item">
           <input type="text" value={artist} placeholder="Artist" onChange={(e) => setArtist(e.target.value)} autoComplete="off" />
+        </label>
+        <label className="new-item">
           <input type="text" value={artwork} placeholder="Artwork URL" onChange={(e) => setArtwork(e.target.value)} autoComplete="off" />
+        </label>
           {/* <input type="text" value={spotify} placeholder="Spotify Link (optional)" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" /> */}
+        <label className="new-item">
           <input type="text" value={releaseDate} placeholder="Release Date (YYYY)"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
+        </label>
+        <label className="new-item">
           <input type="text" value={genre} placeholder="Genre (optional)" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
-          <button> Save </button>
+        </label>
+        <label className="new-item">
+          <button className="button" id="card-button"> SAVE </button>
         </label>
       </form>
       <div>
@@ -55,7 +65,7 @@ function EditAlbum({setIsEditing, album, handleUpdateAlbum}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setIsEditing(false)}> Exit </button>
+      <button className="button" id="card-button" onClick={() => setIsEditing(false)}> EXIT </button>
     </div>
   );
 }

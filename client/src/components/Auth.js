@@ -55,11 +55,16 @@ function Auth({user, setUser}) {
       {/* Log In Form */}
       <h1> Log In </h1>
       <form onSubmit={handleLoginSubmit}>
-        <input type="text" name="username" placeholder="Username" autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)}/>
-        <input type="text" name="password" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <button className="button"> SUBMIT </button>
+        <label className="new-item">
+          <input type="text" name="username" placeholder="Username" autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        </label>
+        <label className="new-item">
+          <input type="text" name="password" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </label>
+        <label className="new-item">
+          <button className="button"> SUBMIT </button>
+        </label>
       </form>
-
       {/* Log In Error */}
       <div>
         {logInError ? (
@@ -70,10 +75,18 @@ function Auth({user, setUser}) {
       {/* Sign Up Form */}
       <h1> Or Create an Account </h1>
       <form onSubmit={handleSignupSubmit}>
-        <input type="text" name="username" placeholder="Username" autoComplete="off" value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
-        <input type="text" name="password" placeholder="Password" autoComplete="off" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-        <input type="text" name="password_confirmation" placeholder="Confirm Password" autoComplete="off" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
-        <button className="button"> CREATE ACCOUNT </button>
+        <label className="new-item">
+          <input type="text" name="username" placeholder="Username" autoComplete="off" value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
+        </label>
+        <label className="new-item">
+          <input type="text" name="password" placeholder="Password" autoComplete="off" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+        </label>
+        <label className="new-item">
+          <input type="text" name="password_confirmation" placeholder="Confirm Password" autoComplete="off" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
+        </label>
+        <label className="new-item">
+          <button className="button"> CREATE ACCOUNT </button>
+        </label>
       </form>
 
       {/* Sign Up Errors */}

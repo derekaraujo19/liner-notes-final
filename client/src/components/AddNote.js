@@ -44,27 +44,34 @@ function AddNote({setShowAddNotes, addNewNote}) {
 
 
   return (
-    <div className="Forms">
+    <div className="Forms" >
       <form onSubmit={handleAddNoteSubmit}>
         {/* Song Select */}
-        <label>
+        <label className="new-item">
           <select className="song-select" placeholder="Choose A Song" value={song_id} onChange={(e) => setSong_Id(e.target.value)}>
             <option disabled={true} value=""> -Choose a Song- </option>
             {songs.map((song) => (
               <option key={song.id} value={song.id}>{song.name}</option>
             ))}
           </select>
+        </label>
+
           {/* Text */}
+        <label className="new-item">
           <textarea name="text" placeholder="New Note" style={{width:"350px", height:"120px", resize: "none"}}value={text} onChange={(e) => setText(e.target.value)}/>
+        </label>
+
+        <label className="new-item">
           <button className="button" id="card-button"> ADD NOTE </button>
         </label>
+
       </form>
       <div>
         {errors ? errors.map((error) => (
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button className="button" onClick={() => setShowAddNotes(false)}> RETURN TO NOTES </button>
+      <button className="button" id="card-button" onClick={() => setShowAddNotes(false)}> RETURN TO NOTES </button>
     </div>
   );
 }

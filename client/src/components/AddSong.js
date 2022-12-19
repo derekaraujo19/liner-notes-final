@@ -56,14 +56,16 @@ function AddSong({setShowAddSong, addNewSong}) {
     <div className="Forms">
       <form onSubmit={handleAddSongSubmit}>
         {/* Song Form */}
-        <label>
-          <input type="text" name="name" placeholder="Song Name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="off"/>
-          <input type="text" name="artist" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)} autoComplete="off"/>
+        <label className="new-item">
+          <input type="text" name="name" placeholder="Song Name*" value={name} onChange={(e) => setName(e.target.value)} autoComplete="off"/>
+        </label>
+        <label className="new-item">
+          <input type="text" name="artist" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} autoComplete="off"/>
           {/* <input type="text" name="spotify_url" placeholder="Spotify Link (optional)" value={spotify} onChange={(e) => setSpotify(e.target.value)} autoComplete="off"/> */}
         </label>
-        <h4>Optional</h4>
+
         {/* Involvement Form */}
-        <label>
+        <label className="new-item">
           <h4> Involvement: </h4>
           <input type="checkbox" name="writer" value={is_writer} onChange={(e) => setIs_Writer(!is_writer)} />
           <label> Writer </label>
@@ -73,25 +75,26 @@ function AddSong({setShowAddSong, addNewSong}) {
           <label> Producer </label>
           <input type="checkbox" name="engineer" value={is_engineer} onChange={(e) => setIs_Engineer(!is_engineer)} />
           <label> Engineer </label>
-
+        </label>
 
         {/* Album Form */}
           <h4> Album: </h4>
+          <label className="new-item">
           <select className="album-select" placeholder="Choose Album" value={album_id} onChange={(e) => setAlbum_Id(e.target.value)}>
             <option disabled={true} value="">-Choose an Album-</option>
             {albums.map((album) => (
               <option key={album.id} value={album.id}>{album.title}</option>
             ))}
           </select>
+          </label>
           <button className="button" id="card-button"> ADD SONG </button>
-        </label>
       </form>
       <div>
         {errors ? errors.map((error) => (
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button className="button" onClick={() => setShowAddSong(false)}> RETURN TO TRACKLIST </button>
+      <button className="button" id="card-button" onClick={() => setShowAddSong(false)}> RETURN TO TRACKLIST </button>
     </div>
   );
 }
