@@ -48,14 +48,14 @@ function Tracklist() {
 
   if(songs.length === 0) return (
     <div>
-      <button onClick={showAddSongForm}> Add Track </button>
-      <h2> No Songs Yet! Click Add Track to Get Started </h2>
+      <h2 className="No-Content"> No Songs Yet! Click Add Track to Get Started </h2>
+      <button onClick={showAddSongForm} className="button"> ADD TRACK </button>
     </div>
   );
 
   return (
-    <div>
-      <button onClick={showAddSongForm}> Add Track </button>
+    <div className="Lists">
+      <button className="button" onClick={showAddSongForm}> ADD TRACK </button>
       {songs.map((song) => (
         <Song
           key={song.id}

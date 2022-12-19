@@ -47,14 +47,14 @@ function AlbumList() {
 
   if(albums.length === 0) return (
     <div>
-      <button onClick={showAddAlbumForm}> Add Album </button>
-      <h2> No Albums Yet! Click Add Album to Get Started </h2>
+      <h2 className="No-Content"> No Albums Yet! Click Add Album to Get Started </h2>
+      <button className="button" onClick={showAddAlbumForm}> ADD ALBUM </button>
     </div>
   );
 
   return (
     <div className="Lists">
-      <button onClick={showAddAlbumForm}> Add Album </button>
+      <button className="button" onClick={showAddAlbumForm}> ADD ALBUM </button>
       {albums.map((album) => (
         <Album
           key={album.id}

@@ -33,14 +33,14 @@ function Notes() {
 
   if(notes.length === 0) return (
     <div>
-      <button onClick={showAddNoteForm}> Add Note </button>
-      <h2> Add a Note to Get Started </h2>
+      <h2 className="No-Content"> Add a Note to Get Started </h2>
+      <button className="button" onClick={showAddNoteForm}> ADD NOTE </button>
     </div>
   );
 
   return (
     <div className="Lists">
-      <button onClick={showAddNoteForm}> Add Note </button>
+      <button className="button"onClick={showAddNoteForm}> ADD NOTE </button>
       {notes.map((note) => (
         <Note
           key={note.id}

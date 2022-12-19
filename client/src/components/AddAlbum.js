@@ -50,7 +50,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           {/* <input type="text" value={spotify} placeholder="Spotify Link (optional)" onChange={(e) => setSpotify(e.target.value)} autoComplete="off" /> */}
           <input type="text" value={releaseDate} placeholder="Release Date (YYYY)"  maxLength="4" onChange={(e) => setReleaseDate(e.target.value)} autoComplete="off" />
           <input type="text" value={genre} placeholder="Genre (optional)" onChange={(e) => setGenre(e.target.value)} autoComplete="off" />
-          <button> Add Album </button>
+          <button className="button" id="card-button"> ADD ALBUM </button>
         </label>
       </form>
       <div>
@@ -58,7 +58,7 @@ function AddAlbum({setShowAddAlbum, addNewAlbum}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setShowAddAlbum(false)}> Return to Albums </button>
+      <button className="button" onClick={() => setShowAddAlbum(false)}> RETURN TO ALBUMS </button>
     </div>
   );
 }

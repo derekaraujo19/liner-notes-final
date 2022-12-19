@@ -56,7 +56,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
           </select>
           {/* Text */}
           <textarea name="text" placeholder="New Note" style={{width:"350px", height:"120px", resize: "none"}}value={text} onChange={(e) => setText(e.target.value)}/>
-          <button> Add Note </button>
+          <button className="button" id="card-button"> ADD NOTE </button>
         </label>
       </form>
       <div>
@@ -64,7 +64,7 @@ function AddNote({setShowAddNotes, addNewNote}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setShowAddNotes(false)}> Return to Notes </button>
+      <button className="button" onClick={() => setShowAddNotes(false)}> RETURN TO NOTES </button>
     </div>
   );
 }

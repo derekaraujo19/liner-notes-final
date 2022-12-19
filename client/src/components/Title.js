@@ -1,6 +1,6 @@
 function Title() {
   return (
-    <h1> LINER NOTES </h1>
+    <h1 className="Title"> LINER NOTES </h1>
   );
 }
 

@@ -27,9 +27,9 @@ function Song({song, handleDeleteSong, handleUpdateSong}) {
       {isEditing ? (
         <EditSong song={song} setIsEditing={setIsEditing} handleUpdateSong={handleUpdateSong}/>
       ) : (
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button className="button" id="card-button" onClick={() => setIsEditing(true)}> EDIT </button>
       )}
-      <button onClick={handleDeleteSubmit}>
+      <button className="button" id="card-button" onClick={handleDeleteSubmit}>
         <div role="img" aria-label="delete"> 🗑 </div>
       </button>
     </div>

@@ -1,18 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+
+.Title {
+  font-size: 500%;
+  word-spacing: 60px;
+  margin-bottom: -1%;
+  color: #F9F6EE;
+  background-color: black;
+  /* width: 89%; */
 }
 
 .Nav {
   display: flex;
   justify-content: center;
-  margin: 2%;
-  gap: 8px;
+  margin-top: 1.5%;
+  margin-bottom: 5%;
+  gap: 20px;
+  font-size: 155%;
+  background-color: #FAFAFA;
+  /* background-color: #FFC0CB; (PINK)*/
+  letter-spacing: 5px;
+  padding: 3%;
+  height: 5px;
+}
+
+.Errors {
+  color: red;
+  padding-left: 0;
+  letter-spacing: 1px;
+}
+
+.Auth {
+  margin-top: 100px;
+}
+
+.Profile {
+  font-size: larger;
+  letter-spacing: 1.5px;
+}
+
+#stats {
+  background-color: black;
+  color: #F9F6EE;
 }
 
 label, input {
   display: flex;
   margin: auto;
 }
+
+
 
 label {
   margin-bottom: 50px;
@@ -32,43 +74,34 @@ label {
   padding: 10px;
 }
 
-/* .Song {
-  margin: auto;
-  padding: 5px;
-  width: 50%;
-} */
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.No-Content {
+  margin-top: 100px;
+  font-size: 300%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button {
+  transition-duration: 0.2s;
+  background-color: lightgray;
+  color: #F9F6EE;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  font-family: 'Anton', sans-serif;
+  font-size: 120%;
+  margin: 10px;
+  width: 40%;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.button:hover {
+  background-color: skyblue;
 }
 
-.App-link {
-  color: #61dafb;
+#card-button {
+  font-size: small;
+  width: 10%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+#card-button:hover {
+  background-color: red;
+}

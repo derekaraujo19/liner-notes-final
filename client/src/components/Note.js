@@ -14,7 +14,7 @@ function Note({note, handleDeleteNote}) {
     <div className="Note">
       <h3> Note for {note.song ? `"${note.song.name}"` : "(SONG DELETED)"} on {datestamp}: </h3>
       <p>{note.text}</p>
-      <button onClick={handleDeleteSubmit}>
+      <button className="button" id="card-button"onClick={handleDeleteSubmit}>
         <div role="img" aria-label="delete"> 🗑 </div>
       </button>
     </div>

@@ -14,15 +14,15 @@ function Profile({user, setUser}) {
   }
 
 
-
-
   return (
     <div className="Profile">
       <h1> Welcome, {user.username}! </h1>
-      <h4> You have logged {user.songs ? user.songs.length : ""} songs </h4>
-      <h4> and </h4>
-      <h4> {user.albums ? user.albums.length : "0"} albums </h4>
-      <button onClick={() => handleLogout()}> Log Out </button>
+      <div id="stats">
+        <h4> You have logged {user.songs ? user.songs.length : ""} songs </h4>
+        <h4> and </h4>
+        <h4> {user.albums ? user.albums.length : "0"} albums </h4>
+      </div>
+      <button className="button" onClick={() => handleLogout()}> LOG OUT </button>
     </div>
   );
 }

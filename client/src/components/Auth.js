@@ -51,13 +51,13 @@ function Auth({user, setUser}) {
   }
 
   return (
-    <div>
+    <div className="Auth">
       {/* Log In Form */}
       <h1> Log In </h1>
       <form onSubmit={handleLoginSubmit}>
         <input type="text" name="username" placeholder="Username" autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)}/>
         <input type="text" name="password" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <button> Submit </button>
+        <button className="button"> SUBMIT </button>
       </form>
 
       {/* Log In Error */}
@@ -73,7 +73,7 @@ function Auth({user, setUser}) {
         <input type="text" name="username" placeholder="Username" autoComplete="off" value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
         <input type="text" name="password" placeholder="Password" autoComplete="off" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
         <input type="text" name="password_confirmation" placeholder="Confirm Password" autoComplete="off" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
-        <button> Create Account </button>
+        <button className="button"> CREATE ACCOUNT </button>
       </form>
 
       {/* Sign Up Errors */}

@@ -77,7 +77,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
 
           <input type="checkbox" name="engineer" value={is_engineer} onChange={(e) => setIs_Engineer(!is_engineer)} checked={is_engineer ? true : false} />
           <label> Engineer </label>
-          <button> Save </button>
+          <button className="button" id="card-button"> SAVE </button>
         </label>
       </form>
       <div>
@@ -85,7 +85,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setIsEditing(false)}> Exit </button>
+      <button className="button"  onClick={() => setIsEditing(false)}> EXIT </button>
     </div>
   );
 }

@@ -83,7 +83,7 @@ function AddSong({setShowAddSong, addNewSong}) {
               <option key={album.id} value={album.id}>{album.title}</option>
             ))}
           </select>
-          <button> Add Song </button>
+          <button className="button" id="card-button"> ADD SONG </button>
         </label>
       </form>
       <div>
@@ -91,7 +91,7 @@ function AddSong({setShowAddSong, addNewSong}) {
           <ul key={error} className="Errors">{error}</ul>
         )) : ""}
       </div>
-      <button onClick={() => setShowAddSong(false)}> Return to Tracklist </button>
+      <button className="button" onClick={() => setShowAddSong(false)}> RETURN TO TRACKLIST </button>
     </div>
   );
 }
