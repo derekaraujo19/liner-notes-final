@@ -33,11 +33,11 @@ rails db:migrate db:seed
 ```
 
 
-Alternatively, a deployed demo version can be found [here](https://liner-notes-app.onrender.com/profile)
-
-
 
 ## Acknowledgement
 This application was created using Create React App.
 
+A deployed version can be found [here](https://liner-notes-app.onrender.com/profile)
+
 <!-- Font Used: Google Fonts; -->
+

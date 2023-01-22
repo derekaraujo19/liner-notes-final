@@ -57,7 +57,7 @@ function EditSong({song, setIsEditing, handleUpdateSong}) {
         </label>
         <label className="new-item">
           <select className="album-select" placeholder="Choose Album" value={album_id ? album_id : ""} onChange={(e) => setAlbum_Id(e.target.value)}>
-              <option disabled={true} value="">-Choose an Album-</option>
+              <option disabled={false} value="">-Choose an Album-</option>
               {albums.map((album) => (
                 <option key={album.id} value={album.id}>{album.title}</option>
               ))}
