@@ -63,7 +63,7 @@ function Tracklist() {
         <input
           type="text"
           name="search"
-          placeholder="search by song name"
+          placeholder="search by song"
           autoComplete="off"
           value={search}
           onChange={e => setSearch(e.target.value)}

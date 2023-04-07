@@ -5,6 +5,7 @@ import AddAlbum from "./AddAlbum";
 function AlbumList() {
   const [albums, setAlbums] = useState([])
   const [showAddAlbum, setShowAddAlbum] = useState(null);
+  const [search, setSearch] = useState("");
 
   // Get Album List
   useEffect(() => {
@@ -43,6 +44,11 @@ function AlbumList() {
     setAlbums(updatedAlbums)
   };
 
+  // Search Albums
+  const displayedAlbums = albums.filter((album) =>
+  album.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   if(showAddAlbum) return <AddAlbum setShowAddAlbum={setShowAddAlbum} addNewAlbum={addNewAlbum} />
 
   if(albums.length === 0) return (
@@ -54,8 +60,18 @@ function AlbumList() {
 
   return (
     <div className="Lists">
+      <div className="SearchBox">
+        <input
+          type="text"
+          name="search"
+          placeholder="search by album"
+          autoComplete="off"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
       <button className="button" onClick={showAddAlbumForm}> ADD ALBUM </button>
-      {albums.map((album) => (
+      {displayedAlbums.map((album) => (
         <Album
           key={album.id}
           album={album}
