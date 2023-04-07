@@ -5,6 +5,7 @@ import AddNote from "./AddNote";
 function Notes() {
   const [notes, setNotes] = useState([]);
   const [showAddNotes, setShowAddNotes] = useState(false);
+  const [search, setSearch] = useState("");
 
   // Get Notes
   useEffect(() => {
@@ -29,6 +30,13 @@ function Notes() {
     setNotes(updatedNotes);
   };
 
+  // Search Notes
+
+  // const songName = notes.map((note) => note.song.name);
+  const displayedNotes = notes.filter((note) =>
+  note.song.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   if(showAddNotes) return <AddNote setShowAddNotes={setShowAddNotes} addNewNote={addNewNote}/>
 
   if(notes.length === 0) return (
@@ -40,8 +48,18 @@ function Notes() {
 
   return (
     <div className="Lists">
+      <div className="SearchBox">
+        <input
+          type="text"
+          name="search"
+          placeholder="search by song"
+          autoComplete="off"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
       <button className="button"onClick={showAddNoteForm}> ADD NOTE </button>
-      {notes.map((note) => (
+      {displayedNotes.map((note) => (
         <Note
           key={note.id}
           note={note}
