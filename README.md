@@ -4,7 +4,9 @@
 ## Description
 Liner Notes is a database and note-taking app for artists to keep track of their song credits and associated albums. Users create accounts to log their artistic work, leave notes for specific songs, and add, edit, or delete any album metadata the song might appear on.
 
-<!-- A video walkthrough of the application running can be found [here](). -->
+A video walkthrough of the application running can be found [here](https://youtu.be/W5fqM41CFrk).
+
+A deployed version can be found [here](https://liner-notes-app.onrender.com)
 
 
 ## Requirements
@@ -37,7 +39,7 @@ rails db:migrate db:seed
 ## Acknowledgement
 This application was created using Create React App.
 
-A deployed version can be found [here](https://liner-notes-app.onrender.com/profile)
+
 
 <!-- Font Used: Google Fonts; -->
 

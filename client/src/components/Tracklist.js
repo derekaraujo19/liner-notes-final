@@ -5,6 +5,7 @@ import AddSong from "./AddSong";
 function Tracklist() {
   const [songs, setSongs] = useState([]);
   const [showAddSong, setShowAddSong] = useState(null);
+  const [search, setSearch] = useState("");
 
   // Get Song List
   useEffect(() => {
@@ -42,6 +43,9 @@ function Tracklist() {
   };
 
   // Search Songs
+  const displayedSongs = songs.filter((song) =>
+  song.name.toLowerCase().includes(search.toLowerCase())
+  );
 
 
   if(showAddSong) return <AddSong setShowAddSong={setShowAddSong} addNewSong={addNewSong} />
@@ -55,8 +59,18 @@ function Tracklist() {
 
   return (
     <div className="Lists">
+      <div className="SearchBox">
+        <input
+          type="text"
+          name="search"
+          placeholder="search by song name"
+          autoComplete="off"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
       <button className="button" onClick={showAddSongForm}> ADD TRACK </button>
-      {songs.map((song) => (
+      {displayedSongs.map((song) => (
         <Song
           key={song.id}
           song={song}
