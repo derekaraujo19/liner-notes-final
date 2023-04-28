@@ -2,7 +2,8 @@ import {NavLink} from "react-router-dom";
 
 
 const linkStyles = {
-  color: "black"
+  color: "black",
+  textDecoration: 'none'
 };
 
 const activeStyle = {
